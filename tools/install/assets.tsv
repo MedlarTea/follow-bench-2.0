@@ -1,0 +1,10 @@
+# FollowBench 2.0 release zips, consumed by tools/install/install_assets.sh.
+# They are hosted at https://huggingface.co/datasets/hjyeee/Follow-Bench-2.0-packages
+# (override with FB_ASSETS_REPO / FB_ASSETS_REVISION / HF_ENDPOINT).
+# The files inside each zip are listed with their own checksums in files.tsv.
+# Columns (TAB-separated):
+#   name  file  sha256  zip_bytes  unpacked_bytes  dest(carla|repo)  marker(path that exists once installed)  description
+carla	followbench2_carla_multi_robots.zip	75e1241428694d8ab183607af1a159604f47b0d1948c7cf68c1ad9e7b8670eb3	5784855355	14169777961	carla	CarlaUE4.sh	FollowBench CARLA 0.9.16 multi-robot build (Linux)
+weights	followbench2_weights.zip	c9ba352c2f8871ac7775cef022374105275b34cc756e77f54905f815c1e06bdd	3669309221	3952285859	repo	data/weights/reid_basic/ckpt.t7	R18/KPR ReID and trajectory predictors
+oa_vat	followbench2_oa_vat.zip	9737fe471d6abbdbed1dc0576b113986b2263952d1588a866f63f2c6f7db63ed	646571008	706786269	repo	data/oa-vat/ortrack/ORTrack_ep0300.pth.tar	ORTrack and MobileCLIP-B-LT
+trackvla	followbench2_trackvla.zip	a7aa42d6ddbdf4b5836c470d8cc98f6301e0f978e6928426e92db4472d4e8d0d	16298011634	19757256526	repo	data/trackvla/LLM_hf/qwen3-4b/config.json	TrackVLA checkpoint, Qwen3-4B, SigLIP

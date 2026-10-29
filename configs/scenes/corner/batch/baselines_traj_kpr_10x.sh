@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# MPC w/ Traj. + KPR
+# Protocol: back, D=1.5, difficulties easy|hard|boss|legend, 10 trials.
+PLANNERS_WITH_PERCEPTION="rda_traj"
+PLANNERS_BACK_ONLY=""
+DIFFICULTIES="easy hard boss legend"
+FOLLOW_POSITIONS_MAIN="back"
+FOLLOW_POSITIONS_BACK_ONLY=""
+
+DESIRED_DISTANCE="1.5"
+REPEATS="10"
+RESTART_CARLA_EVERY_N_SLOTS="25"
+SIM_MODE="sync"
+AUTO_SPAWN_SEC="1"
+AUTO_FOLLOW_SEC="4"
+ENABLE_EVALUATION="1"
+RESUME="1"
+STOP_ON_FAILURE="0"
+WITH_EPISODE_PLOTS="0"
+REID_KPR_CONFIG="kpr_occ_duke_test"
+REID_DEVICE="auto"
+REID_MODE="kpr"
+EXTRA_EPISODE_ARGS="--rda-traj-disable-lidar-obstacles"

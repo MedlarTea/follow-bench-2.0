@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "followbench"
+version = "0.1.0"
+description = "FollowBench 2.0: a CARLA benchmark for robot person-following in crowds"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+# Runtime dependencies (CARLA client, torch, ultralytics, ...) are pinned in
+# environment.multiRobots.yml; install that conda env first, then `pip install -e .`.
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["followbench*", "baselines*"]
+# Third-party method code keeps its own sys.path-based layout and is loaded by
+# the corresponding adapter at runtime, so it is not installed as a package.
+exclude = ["baselines.third_party*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json"]

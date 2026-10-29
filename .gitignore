@@ -1,0 +1,75 @@
+# ── Everything a run produces (episodes, batch logs, tables, plots) ──────────
+/outputs/
+
+# ── External artifacts: weights, checkpoints, datasets (symlink or directory) ─
+/data
+# Release zips fetched by tools/install/install_assets.sh
+/downloads/
+
+# ── CARLA simulator installations (large binaries) ───────────────────────────
+CARLA_0.9.16/
+carlascout/
+CARLA_multi_robots/
+CARLA_ROBOT_310/
+
+# ── Legacy / local run artefacts ──────────────────────────────────────────────
+**/runs/
+logs_*/
+collector_output/
+follow_dataset/
+difficulty_screenshots/
+walker_navmask.png
+walker_navmask_meta.txt
+nohup.out
+
+# ── Private notes (dev plans, experiment logs, scratch docs) ──────────────────
+/docs/dev/
+/notes/
+*.local.md
+*.private.md
+
+# ── AI assistant / agent workspace state ──────────────────────────────────────
+.codebuddy/
+.cursor/
+.claude/
+
+# ── Media ─────────────────────────────────────────────────────────────────────
+*.mp4
+*.avi
+
+# ── Model weights (all weights live under data/weights/, see docs/01_install.md)
+# The KPR symlink followbench/perception/reid_kpr/deep_person_reid/pretrained_models
+# IS tracked (mode 120000); only the weight files themselves are ignored.
+*.pt
+*.pth.tar
+*.t7
+*.so
+*.ts
+*.zip
+
+# ── Cython output (regenerated from rank_cy.pyx; embeds local build paths) ────
+followbench/perception/reid_kpr/deep_person_reid/torchreid/metrics/rank_cylib/rank_cy.c
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.carla_py310/
+.venv/
+venv/
+env/
+
+# ── Editor / OS ───────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.codex
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Misc generated files ──────────────────────────────────────────────────────
+*.log
+*.tmp

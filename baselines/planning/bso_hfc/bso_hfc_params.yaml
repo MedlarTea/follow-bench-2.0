@@ -1,0 +1,104 @@
+# ========== Planner-wide settings shared by the local BSO-HFC pipeline. ==========
+# Extra radius added when removing the tracked person from the occupancy map in back-follow mode.
+target_clear_margin: 0.1
+# Occupancy probability threshold used to convert the raw lidar map into a binary obstacle map.
+occ_threshold: 0.65
+# Whether cells with unknown probability should be treated as occupied.
+unknown_is_occupied: false
+# Side length of the BSO-HFC robot-local planning window in meters.
+# The adapter overrides this with sqrt(2) * lidar_range_max by default, i.e.
+# the square inscribed in the detection circle. With the default 5 m lidar
+# range this is about 7.07 m.
+local_map_window_size_m: 7.0710678118654755
+
+# ========== Adaptive timing: delta_t = d_j / v_ref, with v_ref adjusted by incremental PID. ==========
+adaptive_timing:
+  # Nominal reference speed before the PID distance correction is applied.
+  v_ref: 0.9
+  # Minimum allowed reference speed. Keep non-negative for forward-only tracking.
+  v_ref_min: 0.0
+  # Maximum allowed reference speed when the robot is lagging behind the target.
+  v_ref_max: 1.4
+  # Proportional gain on distance error (reacts to being too far / too close).
+  k_p: 8.0
+  # Integral gain on distance error (removes persistent steady-state distance bias).
+  k_i: 1.0
+  # Derivative gain on distance error (suppresses overshoot and oscillation).
+  k_d: 1.0
+  # Lower bound on d_j, the representative spacing between adjacent control points.
+  # This prevents delta_t from collapsing when control points become too dense.
+  d_j_min: 0.12
+
+# ========== Hybrid A* front-end stage on the shared local map. ==========
+hybrid_astar:
+  # Motion-primitive translation distance for each expansion step.
+  step_size: 0.2
+  # Heading discretization resolution, in degrees.
+  angle_res_deg: 15.0
+  # Candidate steering/heading changes explored at each expansion.
+  steering_angles: [-0.45, -0.2, 0.0, 0.2, 0.45]
+  # Distance threshold for accepting that the search has reached the local goal.
+  goal_tolerance: 0.25
+  # Maximum number of Hybrid A* node expansions per planning cycle.
+  max_iterations: 500
+
+# ========== Uniform B-spline optimization stage on the shared local map. ==========
+bspline:
+  # B-spline order p. p=3 means a cubic uniform B-spline.
+  p: 3
+  # Number of control points used for optimization.
+  num_ctrl_points: 8
+  # Number of sampled points taken from the optimized spline for tracking and visualization.
+  num_samples: 30
+  # Maximum L-BFGS-B iterations for each local spline optimization.
+  optimize_maxiter: 40
+  # Safety-distance threshold in the collision cost. This should be near the
+  # robot radius on the 6 m local map, not the large paper/IRSim window value.
+  d_thr: 0.7
+  # Weight of the collision-clearance term.
+  omega_c: 80.0
+  # Weight of the guidance-tracking term.
+  omega_g: 2.0
+  # Weight of the smoothness/jerk term.
+  omega_s: 12.0
+  # Shared weight of the dynamic-feasibility penalties (velocity and acceleration).
+  omega_d: 0.05
+  # Maximum allowed spline speed used by the velocity penalty.
+  v_max: 1.6
+  # Maximum allowed spline acceleration used by the acceleration penalty.
+  a_max: 2.0
+
+# ========== MPC trajectory tracker for the time-parameterized spline reference. ==========
+mpc:
+  # Prediction horizon length in discrete steps.
+  horizon: 12
+  # Maximum OSQP iterations per MPC solve.
+  max_iter: 50
+  # Whether to warm-start the optimizer with the previous control sequence.
+  warm_start: true
+  # Whether the tracker is allowed to command reverse motion.
+  allow_reverse: false
+  # Position-tracking weight in the running cost.
+  q_pos: 16.0
+  # Heading-tracking weight in the running cost.
+  q_yaw: 8.0
+  # Linear-speed tracking weight in the running cost.
+  q_v: 1.5
+  # Angular-speed tracking weight in the running cost.
+  q_omega: 1.5
+  # Terminal position-tracking weight.
+  qf_pos: 20.0
+  # Terminal heading-tracking weight.
+  qf_yaw: 10.0
+  # Terminal linear-speed tracking weight.
+  qf_v: 1.0
+  # Terminal angular-speed tracking weight.
+  qf_omega: 1.0
+  # Control-effort weight for linear acceleration input.
+  r_acc_v: 0.12
+  # Control-effort weight for angular acceleration input.
+  r_acc_omega: 0.10
+  # Input smoothness weight for changes in linear acceleration.
+  rd_acc_v: 0.03
+  # Input smoothness weight for changes in angular acceleration.
+  rd_acc_omega: 0.02

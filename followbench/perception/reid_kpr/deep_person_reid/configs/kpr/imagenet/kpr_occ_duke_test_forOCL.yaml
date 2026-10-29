@@ -1,0 +1,23 @@
+# Override default values in 'scripts/default_config.py'
+
+data:
+  sources: ['occluded_duke']
+  targets: ['occluded_duke']
+  height: 256
+  width: 128
+  norm_mean: [0.485, 0.456, 0.406]
+  norm_std: [0.229, 0.224, 0.225]
+
+model:
+  load_weights: "pretrained_models/kpr_occ_duke_IN_67.12_79.77_41330771.pth.tar"
+  pretrained: False
+  # kpr:
+  #   keypoints:
+  #     enable: False
+  #   masks:
+  #     enable: False
+  transreid:
+    cam_num: 0
+
+test:
+  evaluate: True

@@ -1,0 +1,64 @@
+# Per-file manifest checked by tools/install/check_install.py (TAB-separated).
+# group  size_bytes  sha256  path  source
+#   group:  carla | weights | oa_vat | trackvla  -> unpacked from the release zips
+#           yolo | yoloe                         -> fetched from the upstream publisher by install_assets.sh
+#           dinov3_trackvla | dinov3_oavat        -> gated upstream checkpoints, downloaded by the user
+#           optional                             -> only for non-default options
+#   path:   relative to the CARLA install dir for group carla, else to the repository root
+#   sha256: "-" means the expected hash is the 8-hex suffix in the file name (torch.hub convention)
+#   source: release (zip) | hf:<repo>/<file> | url:<https url> | gated:<repo> | form:<url>; several are tried in order
+weights	46034619	df75ddef42c3d1bda67bc94b093e7ce61de7f75a89f36a8f868a428462198316	data/weights/reid_basic/ckpt.t7	release
+weights	190150	453fe890d3c2f7989f710077d367dd65b9708e2704361f1f8a9dc4c0f148c6b1	data/weights/traj_predictor/sgan.pt	release
+weights	3214819	4bc1ea07e9887996a3d92f456b3a4efb984337f2dc5e85a333d5c432d94d563c	data/weights/traj_predictor/csgan2.pt	release
+weights	6271350	4037ce553e02ec9797c8446dbe042834b0f66f9867f7bc5b7d36c5a9adf49602	data/weights/traj_predictor/csgan.pt	release
+weights	403345143	3b2ec570647fb6eb7cc318307d5ee1619fe1f1f1203cd063347b658f95d96af8	data/weights/reid_kpr/kpr_occ_pt_SOLIDER_81.24_90.59_42326409.pth.tar	release
+weights	384456836	24f1507e909d9487fb1db04d40acd55d935c19ca260ba797ec094aa6abc6c038	data/weights/reid_kpr/kpr_occ_reid_IN_79.05_85.40_41668493.pth.tar	release
+weights	384456836	1a1b921928e4fcf98167f5fffcb67269d42333a4cf1d4d6b48bc95626e9b4d17	data/weights/reid_kpr/kpr_partial_reid_IN_86.0_90.0_41668493.pth.tar	release
+weights	384344696	0a7063518dea680eae97cc737a08c2fed3f67c87ceb0a7f445bd5542b93514e0	data/weights/reid_kpr/kpr_market_IN_89.58_95.87_41898449.pth.tar	release
+weights	384341161	b7831270ed6b1ef7ab3ed703030777ef5cafc354a8a7c4cb5391a869024e9277	data/weights/reid_kpr/kpr_occ_reid_SOLIDER_82.56_84.80_41898366.pth.tar	release
+weights	391866066	fd46c25a2d2e9238c6d5458c31a366ad2fc0d894dc0581262ae25363261037f5	data/weights/reid_kpr/kpr_occ_duke_IN_67.12_79.77_41330771.pth.tar	release
+weights	391679254	531613d583246220a4ed25807a447c791f0bd191f7bd8ad88f19240b1ff82d81	data/weights/reid_kpr/kpr_occ_duke_SOLIDER_75.12_84.25_41443413.pth.tar	release
+weights	384341161	c7d1dc87ab67c6a378c01340d3cff677444a1e5280e2410733b20375523d729b	data/weights/reid_kpr/kpr_partial_reid_SOLIDER_90.7_94.0_41898366.pth.tar	release
+weights	403457219	9bea1e6dd887fb7af8c2f154912cce846c8c809c4c2357df4b89282889b31a20	data/weights/reid_kpr/kpr_occ_pt_IN_82.34_92.33_42323828.pth.tar	release
+weights	384266425	e29bacd699a15d1d069c9d19c8804b7d35baea81e713b55e632ee546e1733a1b	data/weights/reid_kpr/kpr_market_SOLIDER_93.25_96.59_41453430.pth.tar	release
+weights	18440	67bddcd8fa213e00543728ba9aa3e3b23ee96d67cf33f67d05f22339b8e9cb28	data/weights/reid_kpr/LICENSE	release
+weights	829	438af39cfba3a4dde1b2968c4b664bb537bfa703a07a5b51e17a90a2239289bf	data/weights/reid_kpr/NOTICE.md	release
+oa_vat	599764649	a67804d1b0f07b8b9a20c1761ec0847f34660f5fa338ec70e8f3fce68ed95e54	data/oa-vat/mobileclip_blt.ts	release
+oa_vat	107012077	4970400b82d78c852f4268b6b8088e2b126557aada54c67b0d71f95f5ce789bd	data/oa-vat/ortrack/ORTrack_ep0300.pth.tar	release
+oa_vat	1063	c7020beae4f1571a7fe14def021f8cf910f8fb34c2200e8ab93d01a7ebc65cad	data/oa-vat/ortrack/LICENSE	release
+oa_vat	5816	30c59d255d2b4075ba11b81ce5aa0109c28d28138d66d52f7f5d8cbba814df8b	data/oa-vat/LICENSE_MODELS	release
+oa_vat	762	556329876fd73079abbfcd44b3da227f82259328c2c00bd4544a61f9fb6f1017	data/oa-vat/MOBILECLIP_NOTICE.txt	release
+trackvla	8184366894	bf93c8199fdaec05c7381961e0e91d006411e0818c21814f817cc047f430c357	data/trackvla/ckpts/260417-qwen3-4b-unified-nav-qa-view-fwd-ws16-bs16-acc1-glb256-qabs16-ep5-lrb2e-5-lrh2e-4-bn10.0-bq1.0/model_epoch04_step024000.pt	release
+trackvla	435	a8e754de62f09e4e8befcfcb66472fbdbd8dc69d43278974a0b75a89cca7c1ce	data/trackvla/ckpts/260417-qwen3-4b-unified-nav-qa-view-fwd-ws16-bs16-acc1-glb256-qabs16-ep5-lrb2e-5-lrh2e-4-bn10.0-bq1.0/model_config.json	release
+trackvla	239	2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2	data/trackvla/LLM_hf/qwen3-4b/generation_config.json	release
+trackvla	1671853	8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5	data/trackvla/LLM_hf/qwen3-4b/merges.txt	release
+trackvla	11422654	aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4	data/trackvla/LLM_hf/qwen3-4b/tokenizer.json	release
+trackvla	16857	71add1cd091c309b1cb1a6b943f2476eb2b004124b3bd1d32dcd0b24cc1abc47	data/trackvla/LLM_hf/qwen3-4b/README.md	release
+trackvla	3957900840	328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223	data/trackvla/LLM_hf/qwen3-4b/model-00001-of-00003.safetensors	release
+trackvla	3987450520	6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5	data/trackvla/LLM_hf/qwen3-4b/model-00002-of-00003.safetensors	release
+trackvla	2776833	ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910	data/trackvla/LLM_hf/qwen3-4b/vocab.json	release
+trackvla	9732	d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101	data/trackvla/LLM_hf/qwen3-4b/tokenizer_config.json	release
+trackvla	32819	6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2	data/trackvla/LLM_hf/qwen3-4b/model.safetensors.index.json	release
+trackvla	726	8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a	data/trackvla/LLM_hf/qwen3-4b/config.json	release
+trackvla	11343	832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e	data/trackvla/LLM_hf/qwen3-4b/LICENSE	release
+trackvla	99630640	e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1	data/trackvla/LLM_hf/qwen3-4b/model-00003-of-00003.safetensors	release
+trackvla	368	f59da2f87c3cd079bd4f8f3037e81b277c60c498e279a8020331f67a5a3157e8	data/trackvla/google/siglip-so400m-patch14-384/preprocessor_config.json	release
+trackvla	3511950624	ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a	data/trackvla/google/siglip-so400m-patch14-384/model.safetensors	release
+trackvla	576	adc04928d8fd19a61822584fe0cf2e813e5ebac17f3e49fb1ea096860ae6457b	data/trackvla/google/siglip-so400m-patch14-384/config.json	release
+trackvla	11356	43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1	data/trackvla/google/siglip-so400m-patch14-384/LICENSE	release
+trackvla	359	697b912e046abca82724f5dcfea002f5ffc02cd6239a7f8ccaec33fbe5b2a963	data/trackvla/google/siglip-so400m-patch14-384/NOTICE	release
+carla	278	8c683a1aa74e65ba9127f88b595e35559de010e5f7306bf92b049dca5cafec50	CarlaUE4.sh	release
+carla	5023	a90240a43dd6cc29c60c00c6026a47fea8f9535e9d7d87cbb92380e5148ca173	CarlaUE4/Content/Carla/Blueprints/Walkers/G1/G1.uasset	release
+carla	3178	91fa28ca605ed14a9bcb731da5416ea353b9d31a6bca3c4bfcd1ee6cb8193739	CarlaUE4/Content/Carla/Blueprints/Vehicles/Scout/Scout_mini.uasset	release
+carla	37940	06e13949ca46f85cd9146eda208ea246f6b0e394b04c1602f4117f2d3bc6fa38	CarlaUE4/Content/Carla/Maps/Town10HD_Opt.umap	release
+carla	112543256	3d0eb343043c44a12b5bddc8fc4d675d1cd3648493b5d79cb721d75dafabb671	CarlaUE4/Binaries/Linux/CarlaUE4-Linux-Shipping	release
+carla	27793177	fb31367ca1ed9bec23d9fee1ef2a2e9c8accd0ef09c19c0a6cc7d65ab2776feb	PythonAPI/carla/dist/carla-0.9.16-cp310-cp310-linux_x86_64.whl	release
+carla	16	fdbaaabfc7240566be0b57ccee39a91ebc4e6f9cc99c1a29ff27a1906d7f95a7	VERSION	release
+yolo	5613764	0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1	data/weights/yolo/yolo11n.pt	hf:Ultralytics/YOLO11/yolo11n.pt url:https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt
+yolo	19313732	85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5	data/weights/yolo/yolo11s.pt	hf:Ultralytics/YOLO11/yolo11s.pt url:https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt
+yoloe	70982416	a993fb0fc7c8830939ae14e6434a925dd1179428158c2761482eb8a8d8a3699f	data/oa-vat/yolo/yoloe-11l-seg.pt	hf:jameslahm/yoloe/yoloe-11l-seg.pt url:https://github.com/ultralytics/assets/releases/download/v8.3.0/yoloe-11l-seg.pt
+dinov3_trackvla	743	9481247be9f95a134a5599402b4bfc838eecdf9a7fffbf4debd1c70ec213898b	data/trackvla/facebook/dinov3-vits16-pretrain-lvd1689m/config.json	gated:facebook/dinov3-vits16-pretrain-lvd1689m
+dinov3_trackvla	585	960c41d1f3a7778b936365769a2d90550b318a6c0a53a0296957adacfe5e0dd7	data/trackvla/facebook/dinov3-vits16-pretrain-lvd1689m/preprocessor_config.json	gated:facebook/dinov3-vits16-pretrain-lvd1689m
+dinov3_trackvla	86406384	4610ad75edef83e75afdebf162d148dc628045ea6cbb83d67d4708c709c4f91d	data/trackvla/facebook/dinov3-vits16-pretrain-lvd1689m/model.safetensors	gated:facebook/dinov3-vits16-pretrain-lvd1689m
+dinov3_oavat	342860279	73cec8be7427c8655ceced13ce62f6e20a1fa90d1b4d4a550df17a1144081a7c	data/oa-vat/dinov3/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth	form:https://ai.meta.com/resources/models-and-libraries/dinov3-downloads/
+optional	-	-	data/oa-vat/dinov3/dinov3_vits16_pretrain_lvd1689m-08c60483.pth	form:https://ai.meta.com/resources/models-and-libraries/dinov3-downloads/
